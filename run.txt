@@ -1,0 +1,16 @@
+buid:
+sudo docker build -t steer/redis-cluster:v1 .
+
+
+run:
+sudo docker run --name redis-cluster100 -p 7001:7001 -p 7002:7002 --network=steer-bridge --ip 182.18.1.100 -d steer/redis-cluster:v1
+
+sudo docker run --name redis-cluster101 -p 7004:7004 -p 7003:7003 --network=steer-bridge --ip 182.18.1.101 -d steer/redis-cluster:v1
+
+sudo docker run --name redis-cluster102 -p 7005:7005 -p 7006:7006 --network=steer-bridge --ip 182.18.1.102 -d steer/redis-cluster:v1
+
+
+
+#7001-7004
+#7003-7006
+#7005-7002
